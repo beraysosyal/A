@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070b12">
+  <meta name="description" content="BERAY_US — modern bilgisayar çalışma alanı">
+  <meta name="application-name" content="BERAY_US">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" href="./icons/beray-us-192.png">
+  <link rel="stylesheet" href="./styles.css">
+  <title>BERAY_US</title>
+</head>
+<body>
+  <div id="boot" class="boot-screen">
+    <div class="boot-mark">B</div>
+    <div class="boot-name">BERAY_US</div>
+    <div class="boot-status">Çalışma alanı hazırlanıyor</div>
+    <div class="progress"><span></span></div>
+    <div class="boot-meta">Desktop Core 0.3</div>
+  </div>
+
+  <div id="system" class="system hidden">
+    <div class="wallpaper"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <button id="brandButton" class="brand-button" title="Başlat menüsü">
+          <span class="brand-logo">B</span>
+          <span class="brand-text">BERAY_US</span>
+        </button>
+      </div>
+
+      <div class="topbar-center">
+        <span id="workspaceLabel">Çalışma Alanı 1</span>
+      </div>
+
+      <div class="top-actions">
+        <button id="networkButton" class="status-button" title="Bağlantı">◉ <span>Çevrimiçi</span></button>
+        <button id="quickButton" class="icon-button" title="Hızlı ayarlar">⌁</button>
+        <button id="notifyButton" class="icon-button notification-button" title="Bildirimler">♢<span id="notificationDot"></span></button>
+        <div id="topClock" class="top-clock">--:--</div>
+      </div>
+    </header>
+
+    <main id="desktop" class="desktop">
+      <div class="desktop-grid">
+        <button class="desktop-app" data-app="browser">
+          <span class="app-icon browser-glyph">◎</span>
+          <span>Web</span>
+        </button>
+        <button class="desktop-app" data-app="files">
+          <span class="app-icon">▣</span>
+          <span>Dosyalar</span>
+        </button>
+        <button class="desktop-app" data-app="notes">
+          <span class="app-icon">✎</span>
+          <span>Notlar</span>
+        </button>
+        <button class="desktop-app" data-app="settings">
+          <span class="app-icon">⚙</span>
+          <span>Ayarlar</span>
+        </button>
+        <button class="desktop-app" data-app="system">
+          <span class="app-icon">◫</span>
+          <span>Sistem</span>
+        </button>
+        <button class="desktop-app" data-app="store">
+          <span class="app-icon">✦</span>
+          <span>Uygulamalar</span>
+        </button>
+      </div>
+
+      <section class="hero-widget">
+        <div class="hero-kicker">BERAY_US</div>
+        <div class="hero-title">Çalışma alanın hazır.</div>
+        <div class="hero-sub">Pencereleri aç, yerleştir, ayarlarını değiştir ve her şeyi tek masaüstünde tut.</div>
+        <div class="hero-row">
+          <button class="primary-button" data-app="browser">Web'i aç</button>
+          <button class="soft-button" data-app="settings">Ayarlar</button>
+        </div>
+      </section>
+    </main>
+
+    <div id="windowLayer" class="window-layer"></div>
+
+    <aside id="startMenu" class="panel start-menu hidden">
+      <div class="panel-head">
+        <div>
+          <div class="panel-title">BERAY_US</div>
+          <div class="panel-sub">Uygulamalar ve çalışma alanı</div>
+        </div>
+        <button class="icon-button" id="closeStart">×</button>
+      </div>
+
+      <div class="launcher-search">
+        <span>⌕</span><input id="launcherSearch" placeholder="Uygulama ara…" autocomplete="off">
+      </div>
+
+      <div id="appGrid" class="app-grid">
+        <button class="launcher-card" data-app="browser"><span>◎</span><strong>Web</strong><small>Google ve web</small></button>
+        <button class="launcher-card" data-app="files"><span>▣</span><strong>Dosyalar</strong><small>Yerel alan</small></button>
+        <button class="launcher-card" data-app="notes"><span>✎</span><strong>Notlar</strong><small>Yerel notlar</small></button>
+        <button class="launcher-card" data-app="settings"><span>⚙</span><strong>Ayarlar</strong><small>Kişiselleştirme</small></button>
+        <button class="launcher-card" data-app="system"><span>◫</span><strong>Sistem</strong><small>Durum merkezi</small></button>
+        <button class="launcher-card" data-app="store"><span>✦</span><strong>Uygulamalar</strong><small>Kurulu uygulamalar</small></button>
+      </div>
+
+      <div class="menu-footer">
+        <div><span class="profile-dot">B</span><div><strong>Beray</strong><small>BERAY_US yerel profil</small></div></div>
+        <button id="sleepButton" class="soft-button">Uyku</button>
+      </div>
+    </aside>
+
+    <aside id="quickPanel" class="panel quick-panel hidden">
+      <div class="panel-head">
+        <div><div class="panel-title">Hızlı Ayarlar</div><div class="panel-sub">BERAY_US kontrol merkezi</div></div>
+        <button class="icon-button" id="closeQuick">×</button>
+      </div>
+
+      <div class="quick-grid">
+        <button class="quick-tile active" id="wifiToggle"><span>◉</span><strong>Ağ</strong><small>Çevrimiçi</small></button>
+        <button class="quick-tile" id="focusToggle"><span>◌</span><strong>Odak</strong><small>Bildirimleri azalt</small></button>
+        <button class="quick-tile" id="motionToggle"><span>✧</span><strong>Hareket</strong><small>Duvar kâğıdı</small></button>
+        <button class="quick-tile" id="fullscreenToggle"><span>⛶</span><strong>Tam ekran</strong><small>Uygulama görünümü</small></button>
+      </div>
+
+      <div class="panel-section">
+        <div class="section-title">Parlaklık</div>
+        <input id="brightnessRange" type="range" min="60" max="100" value="100">
+      </div>
+    </aside>
+
+    <aside id="notifyPanel" class="panel notification-panel hidden">
+      <div class="panel-head">
+        <div><div class="panel-title">Bildirimler</div><div class="panel-sub">Son sistem olayları</div></div>
+        <button class="icon-button" id="clearNotifications">Temizle</button>
+      </div>
+      <div id="notifications" class="notification-list"></div>
+    </aside>
+
+    <div id="installPrompt" class="install-prompt hidden">
+      <div>
+        <strong>BERAY_US'u bilgisayara yükle</strong>
+        <span>Chrome/Edge'de uygulama penceresi olarak çalıştır.</span>
+      </div>
+      <button id="installBtn" class="primary-button">Yükle</button>
+      <button id="installDismiss" class="icon-button">×</button>
+    </div>
+
+    <footer class="taskbar">
+      <button id="taskStart" class="task-logo" title="Başlat">B</button>
+      <div class="task-divider"></div>
+      <div id="taskApps" class="task-apps"></div>
+      <div class="task-spacer"></div>
+      <div class="task-status">BERAY_US</div>
+      <button id="taskFullscreen" class="task-icon" title="Tam ekran">⛶</button>
+      <button id="taskClock" class="task-clock">--:--</button>
+    </footer>
+
+    <div id="toast" class="toast hidden"></div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
