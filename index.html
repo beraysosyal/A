@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a1020" />
+  <meta name="description" content="BERAY_US — hafif, modern bilgisayar PWA masaüstü." />
+  <meta name="application-name" content="BERAY_US" />
+  <link rel="manifest" href="./manifest.json" />
+  <link rel="icon" href="./icons/beray-us-192.png" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>BERAY_US</title>
+</head>
+<body>
+  <div id="bootScreen" class="boot-screen">
+    <div class="boot-logo">B</div>
+    <div class="boot-title">BERAY_US</div>
+    <div class="boot-subtitle">Sistem başlatılıyor…</div>
+    <div class="boot-bar"><span></span></div>
+  </div>
+
+  <main id="os" class="os hidden" aria-label="BERAY_US masaüstü">
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+    <div id="wallpaper" class="wallpaper"></div>
+
+    <section id="desktop" class="desktop">
+      <button class="desktop-icon" data-app="files" aria-label="Dosyalar">
+        <span class="icon">📁</span><span>Dosyalar</span>
+      </button>
+      <button class="desktop-icon" data-app="settings" aria-label="Ayarlar">
+        <span class="icon">⚙️</span><span>Ayarlar</span>
+      </button>
+      <button id="googleIcon" class="desktop-icon" aria-label="Google">
+        <span class="icon chrome-icon">G</span><span>Google</span>
+      </button>
+      <button id="aboutIcon" class="desktop-icon" data-app="about" aria-label="BERAY_US">
+        <span class="icon">🅱️</span><span>BERAY_US</span>
+      </button>
+    </section>
+
+    <div id="windowLayer" class="window-layer" aria-live="polite"></div>
+
+    <nav class="taskbar">
+      <button id="startButton" class="taskbar-button start-button" aria-label="Başlat">🅱️</button>
+      <div class="taskbar-divider"></div>
+      <button class="taskbar-button quick-button" data-app="files" title="Dosyalar">📁</button>
+      <button class="taskbar-button quick-button" data-app="settings" title="Ayarlar">⚙️</button>
+      <button id="googleTaskbar" class="taskbar-button quick-button" title="Google"><span class="mini-g">G</span></button>
+      <div class="taskbar-spacer"></div>
+      <button id="fullscreenButton" class="taskbar-button quick-button" title="Tam ekran">⛶</button>
+      <div id="clock" class="clock">--:--</div>
+    </nav>
+
+    <section id="startMenu" class="start-menu hidden">
+      <div class="start-top">
+        <div>
+          <div class="start-title">BERAY_US</div>
+          <div class="start-subtitle">Bilgisayar için hafif masaüstü</div>
+        </div>
+        <button id="closeStart" class="ghost-button">✕</button>
+      </div>
+      <div class="start-grid">
+        <button class="start-card" data-app="files"><span>📁</span><strong>Dosyalar</strong><small>Yerel alan</small></button>
+        <button class="start-card" data-app="settings"><span>⚙️</span><strong>Ayarlar</strong><small>Görünüm ve sistem</small></button>
+        <button class="start-card" id="googleStart"><span class="chrome-icon">G</span><strong>Google</strong><small>Yeni sekmede aç</small></button>
+        <button class="start-card" data-app="about"><span>🅱️</span><strong>BERAY_US</strong><small>Sistem bilgisi</small></button>
+      </div>
+    </section>
+
+    <section id="installBanner" class="install-banner hidden">
+      <div>
+        <strong>BERAY_US'u yükle</strong>
+        <span>Chrome'da uygulama olarak çalışsın.</span>
+      </div>
+      <button id="installButton" class="primary-button">Yükle</button>
+      <button id="dismissInstall" class="ghost-button">Daha sonra</button>
+    </section>
+
+    <div id="toast" class="toast hidden"></div>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
